@@ -15,7 +15,9 @@ module.exports = {
   ],
   extends: [
     'eslint:recommended',
-    'plugin:ember/recommended'
+    'plugin:ember/recommended',
+    'plugin:prettier/recommended',
+    'prettier-standard'
   ],
   env: {
     browser: true
@@ -34,7 +36,9 @@ module.exports = {
         'blueprints/*/index.js',
         'config/**/*.js',
         'lib/*/index.js',
-        'server/**/*.js'
+        'server/**/*.js',
+        'app/tailwind/config.js',
+        'fastboot-server.js'
       ],
       parserOptions: {
         sourceType: 'script'
