@@ -1,12 +1,12 @@
 import { module, test } from 'qunit'
 import { setupTest } from 'ember-qunit'
 
-module('Unit | Adapter | application', function (hooks) {
+module('Unit | Controller | home', function (hooks) {
   setupTest(hooks)
 
   // Replace this with your real tests.
   test('it exists', function (assert) {
-    const adapter = this.owner.lookup('adapter:application')
-    assert.ok(adapter)
+    const controller = this.owner.lookup('controller:home')
+    assert.ok(controller)
   })
 })
