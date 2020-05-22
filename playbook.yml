@@ -39,8 +39,8 @@
     - name: run docker container
       docker_container:
         expose: 80
-        image: impulse-sieve
-        name: impulse-sieve
+        image: impulse-sieve-web
+        name: impulse-sieve-web
         state: started
         env:
           LETSENCRYPT_HOST: "impulsesieve.art,www.impulsesieve.art"
