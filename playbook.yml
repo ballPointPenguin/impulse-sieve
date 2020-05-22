@@ -3,29 +3,38 @@
   hosts: west
   remote_user: hank
   vars:
-    workdir: /home/hank/code/src/github.com/ballPointPenguin/impulse-sieve
+    branch: prod
+    homedir: "/home/{{ user }}"
+    org: ballPointPenguin
+    repo: impulse-sieve
+    user: hank
+    workdir: "{{ homedir }}/code/src/github.com/{{ org }}/{{ repo }}"
+
   tasks:
-    - name: ensure code/src/github.com/ballPointPenguin directory is present
+    - name: ensure workdir parent dir is present
       file:
-        path: /home/hank/code/src/github.com/ballPointPenguin
+        path: "{{ homedir }}/code/src/github.com/{{ org }}"
         state: directory
 
-    - name: clone or update impulse-sieve repository
+    - name: clone or update repo
       git:
         accept_hostkey: yes
         dest: "{{ workdir }}"
-        key_file: /home/hank/.ssh/id_rsa
-        repo: "git@github.com:ballPointPenguin/impulse-sieve.git"
+        key_file: "{{ homedir }}/.ssh/id_rsa"
+        repo: "git@github.com:{{ org }}/{{ repo }}.git"
         update: yes
+        version: "{{ branch }}"
 
     - name: build docker image
       docker_image:
         force_source: yes
-        name: impulse-sieve
+        name: impulse-sieve-web
         source: build
         build:
           path: "{{ workdir }}"
           pull: no
+          args:
+            API_HOST: https://api.impulsesieve.art
 
     - name: run docker container
       docker_container:

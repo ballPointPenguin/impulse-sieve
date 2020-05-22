@@ -1,5 +1,7 @@
 FROM node:lts-alpine
 
+ARG API_HOST
+
 WORKDIR /usr/src/app
 
 RUN apk update
