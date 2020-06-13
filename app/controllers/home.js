@@ -7,4 +7,8 @@ export default class HomeController extends Controller {
   get mainPicture() {
     return this.model.pictures.get('firstObject')
   }
+
+  get titleBlock() {
+    return this.model.blocks.find(block => block.section === 'title')
+  }
 }
