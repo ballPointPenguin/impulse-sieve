@@ -1,8 +1,6 @@
 import Model, { attr } from '@ember-data/model'
 
 export default class PictureModel extends Model {
-  @attr alt
-  @attr description
   @attr location
   @attr name
 
@@ -12,6 +10,18 @@ export default class PictureModel extends Model {
     }
   })
   image
+
+  get alt() {
+    return this.image.alternativeText || this.name
+  }
+
+  get caption() {
+    return this.image.caption || this.name
+  }
+
+  get src() {
+    return this.image.url
+  }
 }
 
 const defaultImageAttrs = {
