@@ -1,3 +1,6 @@
 {{outlet}}
 
-<img src="{{this.host}}{{this.mainPicture.image.url}}">
+<figure>
+  <img alt="{{this.mainPicture.alt}}" src="{{this.host}}{{this.mainPicture.src}}">
+  <figcaption>{{this.mainPicture.caption}}</figcaption>
+</figure>
