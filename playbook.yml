@@ -27,7 +27,7 @@
 
     - name: build docker image
       docker_image:
-        #force_source: yes
+        force_source: yes
         name: impulse-sieve-web
         source: build
         build:
@@ -41,7 +41,8 @@
         expose: 80
         image: impulse-sieve-web
         name: impulse-sieve-web
-        state: started
+        recreate: yes
+        restart_policy: always
         env:
           LETSENCRYPT_HOST: "impulsesieve.art,www.impulsesieve.art"
           PORT: "80"
