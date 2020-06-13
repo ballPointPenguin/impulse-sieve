@@ -10,6 +10,9 @@ export default class ApplicationAdapter extends RESTAdapter {
     const collectionName = pluralize(modelName)
 
     const response = await super.findAll(...arguments)
+    if (response.isAdapterError) {
+      throw response
+    }
     return { [collectionName]: response }
   }
 
@@ -18,6 +21,9 @@ export default class ApplicationAdapter extends RESTAdapter {
     const collectionName = pluralize(modelName)
 
     const response = await super.query(...arguments)
+    if (response.isAdapterError) {
+      throw response
+    }
     return { [collectionName]: response }
   }
 }
