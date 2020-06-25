@@ -1,25 +1,31 @@
 {{!-- HEADER --}}
-<div>
+<div class="flex-1">
   {{#each this.headerBlocks as |block|}}
     <RadBlock @record={{block}} />
   {{/each}}
 </div>
 
 {{!-- TITLE --}}
-<div>
+<div class="flex-1">
   {{#each this.titleBlocks as |block|}}
     <RadBlock @record={{block}} />
   {{/each}}
 </div>
 
 {{!-- BODY --}}
-<figure>
-  <img alt="{{this.mainPicture.alt}}" src="{{this.host}}{{this.mainPicture.src}}">
-  <figcaption>{{this.mainPicture.caption}}</figcaption>
-</figure>
+<div class="flex-1">
+  <figure>
+    <img alt="{{this.mainPicture.alt}}" src="{{this.host}}{{this.mainPicture.src}}">
+    <figcaption>{{this.mainPicture.caption}}</figcaption>
+  </figure>
+
+  {{#each this.bodyBlocks as |block|}}
+    <RadBlock @record={{block}} />
+  {{/each}}
+</div>
 
 {{!-- FOOTER --}}
-<div>
+<div class="flex-1">
   {{#each this.footerBlocks as |block|}}
     <RadBlock @record={{block}} />
   {{/each}}
