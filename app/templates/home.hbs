@@ -1,12 +1,26 @@
+{{!-- HEADER --}}
 <div>
-  <h1 class="{{this.titleBlock.classNames}}">
-    <a href="{{this.titleBlock.link}}" target="_blank" rel="noopener noreferrer">
-      {{this.titleBlock.content}}
-    </a>
-  </h1>
+  {{#each this.headerBlocks as |block|}}
+    <RadBlock @record={{block}} />
+  {{/each}}
 </div>
 
+{{!-- TITLE --}}
+<div>
+  {{#each this.titleBlocks as |block|}}
+    <RadBlock @record={{block}} />
+  {{/each}}
+</div>
+
+{{!-- BODY --}}
 <figure>
   <img alt="{{this.mainPicture.alt}}" src="{{this.host}}{{this.mainPicture.src}}">
   <figcaption>{{this.mainPicture.caption}}</figcaption>
 </figure>
+
+{{!-- FOOTER --}}
+<div>
+  {{#each this.footerBlocks as |block|}}
+    <RadBlock @record={{block}} />
+  {{/each}}
+</div>

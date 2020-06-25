@@ -8,7 +8,27 @@ export default class HomeController extends Controller {
     return this.model.pictures.get('firstObject')
   }
 
-  get titleBlock() {
-    return this.model.blocks.find(block => block.section === 'title')
+  get headerBlocks() {
+    return this.model.blocks
+      .filter(block => block.section === 'header')
+      .sortBy('order')
+  }
+
+  get titleBlocks() {
+    return this.model.blocks
+      .filter(block => block.section === 'title')
+      .sortBy('order')
+  }
+
+  get bodyBlocks() {
+    return this.model.blocks
+      .filter(block => block.section === 'body')
+      .sortBy('order')
+  }
+
+  get footerBlocks() {
+    return this.model.blocks
+      .filter(block => block.section === 'footer')
+      .sortBy('order')
   }
 }

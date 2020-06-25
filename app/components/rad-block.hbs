@@ -1,0 +1,11 @@
+{{#let (element this.tagName) as |Tag|}}
+  <Tag class="{{this.classNames}}">
+    {{#if this.link}}
+      <a href="{{this.link}}" target="_blank" rel="noopener noreferrer">
+        {{this.content}}
+      </a>
+    {{else}}
+      {{this.content}}
+    {{/if}}
+  </Tag>
+{{/let}}
