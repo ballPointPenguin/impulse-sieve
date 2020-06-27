@@ -5,10 +5,15 @@ import ENV from 'impulse-sieve/config/environment'
 export default class ApplicationAdapter extends RESTAdapter {
   host = ENV.DS.host
 
+  async findRecord(store, type, id, snapshot) {
+    const record = await super.findRecord(...arguments)
+
+    return { [type.modelName]: record }
+  }
+
   async findAll(store, type, sinceToken, snapshotRecordArray) {
     const { modelName } = type
     const collectionName = pluralize(modelName)
-
     const response = await super.findAll(...arguments)
 
     return { [collectionName]: response }
@@ -17,7 +22,6 @@ export default class ApplicationAdapter extends RESTAdapter {
   async query(store, type, query) {
     const { modelName } = type
     const collectionName = pluralize(modelName)
-
     const response = await super.query(...arguments)
 
     return { [collectionName]: response }

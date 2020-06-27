@@ -1,7 +1,6 @@
-import Model, { attr } from '@ember-data/model'
+import Model, { attr, hasMany } from '@ember-data/model'
 
 export default class PictureModel extends Model {
-  @attr location
   @attr name
 
   @attr('json', {
@@ -10,6 +9,8 @@ export default class PictureModel extends Model {
     }
   })
   image
+
+  @hasMany('block') blocks
 
   get alt() {
     return this.image.alternativeText || this.name

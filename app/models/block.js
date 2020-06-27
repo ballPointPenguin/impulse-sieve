@@ -1,10 +1,12 @@
-import Model, { attr } from '@ember-data/model'
+import Model, { attr, hasMany } from '@ember-data/model'
 
 export default class BlockModel extends Model {
   @attr() classNames
   @attr() content
   @attr() link
-  @attr() location
   @attr() section
   @attr() tagName
+
+  @hasMany('page') pages
+  @hasMany('picture') pictures
 }
