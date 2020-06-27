@@ -1,0 +1,6 @@
+{{#each @pictures as |picture|}}
+  <figure>
+    <img alt="{{picture.alt}}" src="{{this.host}}{{picture.src}}">
+    <figcaption>{{picture.caption}}</figcaption>
+  </figure>
+{{/each}}

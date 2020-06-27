@@ -14,11 +14,6 @@
 
 {{!-- BODY --}}
 <div class="flex-1">
-  <figure>
-    <img alt="{{this.mainPicture.alt}}" src="{{this.host}}{{this.mainPicture.src}}">
-    <figcaption>{{this.mainPicture.caption}}</figcaption>
-  </figure>
-
   {{#each this.bodyBlocks as |block|}}
     <RadBlock @record={{block}} />
   {{/each}}

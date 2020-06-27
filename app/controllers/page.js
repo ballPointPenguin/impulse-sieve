@@ -1,6 +1,6 @@
 import Controller from '@ember/controller'
 
-export default class HomeController extends Controller {
+export default class PageController extends Controller {
   get headerBlocks() {
     return this.model.blocks
       .filter(block => block.section === 'header')

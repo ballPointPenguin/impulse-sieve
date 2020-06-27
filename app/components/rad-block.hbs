@@ -2,9 +2,11 @@
   <Tag class="{{this.classNames}}">
     {{#if this.link}}
       <a href="{{this.link}}" target="_blank" rel="noopener noreferrer">
+        <RadPictures @pictures={{this.pictures}} />
         {{this.content}}
       </a>
     {{else}}
+      <RadPictures @pictures={{this.pictures}} />
       {{this.content}}
     {{/if}}
   </Tag>

@@ -1,1 +1,27 @@
-{{outlet}}
+{{!-- HEADER --}}
+<div class="flex-1">
+  {{#each this.headerBlocks as |block|}}
+    <RadBlock @record={{block}} />
+  {{/each}}
+</div>
+
+{{!-- TITLE --}}
+<div class="flex-1">
+  {{#each this.titleBlocks as |block|}}
+    <RadBlock @record={{block}} />
+  {{/each}}
+</div>
+
+{{!-- BODY --}}
+<div class="flex-1">
+  {{#each this.bodyBlocks as |block|}}
+    <RadBlock @record={{block}} />
+  {{/each}}
+</div>
+
+{{!-- FOOTER --}}
+<div class="flex-1">
+  {{#each this.footerBlocks as |block|}}
+    <RadBlock @record={{block}} />
+  {{/each}}
+</div>
