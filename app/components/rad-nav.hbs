@@ -1,0 +1,16 @@
+<ul class="flex">
+  <li class="mr-6">
+    <LinkTo class="text-blue-500 hover:text-blue-800" @route="home">
+      Home
+    </LinkTo>
+  </li>
+  {{#each @pages as |page|}}
+    {{#if page.menuLink}}
+      <li class="mr-6">
+        <LinkTo class="text-blue-500 hover:text-blue-800" @route="page" @model={{page}}>
+          {{page.title}}
+        </LinkTo>
+      </li>
+    {{/if}}
+  {{/each}}
+</ul>
