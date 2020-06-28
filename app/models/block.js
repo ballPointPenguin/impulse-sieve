@@ -6,6 +6,7 @@ export default class BlockModel extends Model {
   @attr() link
   @attr() section
   @attr() tagName
+  @attr('number') order
 
   @hasMany('page') pages
   @hasMany('picture') pictures
